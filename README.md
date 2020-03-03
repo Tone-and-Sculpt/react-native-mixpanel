@@ -161,6 +161,16 @@ Mixpanel.set({"$email": "elvis@email.com"});
 // Set People Properties Once (warning: if no mixpanel profile has been assigned to the current user when this method is called, it will automatically create a new mixpanel profile and the user will no longer be anonymous in Mixpanel)
 Mixpanel.setOnce({"$email": "elvis@email.com", "Created": new Date().toISOString()});
 
+// Add a new Group for this user.
+// @param Group key
+// @param A valid Mixpanel property type
+Mixpanel.addGroup('company', 'mixpanel');
+
+// Register the current user into one Group. The Group must be added before setting
+// @param Group key
+// @param a singular group ID
+Mixpanel.setGroup('company', 'mixpanel');
+
 // Timing Events
 // Sets the start time for an action, for example uploading an image
 Mixpanel.timeEvent("Image Upload");
@@ -290,6 +300,35 @@ Mixpanel.showInAppMessageIfAvailable();
 ```
 
 More info: https://developer.mixpanel.com/docs/android-inapp-messages
+
+##  Disable Geolocation Collection  ##
+
+Mixpanel’s client-side libraries send user location data (city, region, country) as Properties by default. Mixpanel pulls the user’s IP address and runs it through a third-party IP geolocator (MaxMind). MaxMind then returns city, region, and country, and Mixpanel sets those as Properties. Then, the IP address is discarded - Mixpanel does not store users’ IPs.
+
+In order to disable or anonymize geolocation data (i.e., not send city, region, and country by default when using a client-side library), you simply need to stop collecting the user’s IP, which will then not populate the city, region, and country properties. At this time, there is no way to selectively disable one or two of the three location default properties. However, you could disable the three default properties and then set your own custom property for the one or two that you’d still like to collect.
+
+For iOS, in your app delegate, add the following line:
+
+```
+// In application:didFinishLaunchingWithOptions:
+Mixpanel *mixpanel = [Mixpanel sharedInstanceWithToken:YOUR_MIXPANEL_TOKEN];
+// To disable IP collection on iOS, make a small change in the Mixpanel library and set:
+mixpanel.useIPAddressForGeoLocation = NO;
+```
+
+OR invoke after initialization (remember it's iOS only method that will thorw an error on Android): 
+
+```
+Mixpanel.disableIpAddressGeolocalization(); 
+```
+
+For Android, add the following to your app mainifest in the `<application>` tag:
+
+```
+<meta-data android:name="com.mixpanel.android.MPConfig.UseIpAddressForGeolocation" android:value="false" />
+```
+
+More info: https://help.mixpanel.com/hc/en-us/articles/115004494803-Disable-Geolocation-Collection
 
 ## Notes ##
 For more info please have a look at the [official Mixpanel reference](https://mixpanel.com/help/reference/ios) for iOS

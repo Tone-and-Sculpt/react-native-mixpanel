@@ -26,6 +26,8 @@ declare module 'react-native-mixpanel' {
     showInAppMessageIfAvailable(): Promise<void>
     optInTracking(): Promise<void>
     optOutTracking(): Promise<void>
+    addGroup(groupKey: string, groupId: string): Promise<void>
+    setGroup(groupKey: string, groupId: string): Promise<void>
 
     // android only
     setPushRegistrationId(token: string): Promise<void>
@@ -62,8 +64,10 @@ declare module 'react-native-mixpanel' {
     clearSuperProperties(): void;
     reset(): void;
     showInAppMessageIfAvailable(): void;
-    optInTracking(): void
-    optOutTracking(): void
+    optInTracking(): void;
+    optOutTracking(): void;
+    addGroup(groupKey: string, groupId: string): void;
+    setGroup(groupKey: string, groupId: string): void;
 
     // android only
     setPushRegistrationId(token: string): void;

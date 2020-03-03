@@ -1,3 +1,10 @@
+# 1.2.0
+
+- [iOS] Update SDK to 3.6.0 (https://github.com/mixpanel/mixpanel-iphone/releases/tag/v3.6.0)
+- [Android] Update SDK to 5.7.0 (https://github.com/mixpanel/mixpanel-android/tree/v5.7.0)
+- Add methods add, set for Group Analytics. Only single values supported 
+- Add information regarding disableIpAddressGeolocalization
+
 # 1.1.14
 
 - [Android] Add check against potential NPE 

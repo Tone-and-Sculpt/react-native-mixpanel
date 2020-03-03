@@ -99,6 +99,7 @@ export class MixpanelInstance {
 
   disableIpAddressGeolocalization(): Promise<void> {
     if (!this.initialized) throw new Error(uninitializedError('disableIpAddressGeolocalization'))
+    if (!RNMixpanel.disableIpAddressGeolocalization) throw new Error('No native implementation for disableIpAddressGeolocalization.  This is iOS only.')
     return RNMixpanel.disableIpAddressGeolocalization(this.apiToken)
   }
 
@@ -243,6 +244,18 @@ export class MixpanelInstance {
   optOutTracking(): Promise<void> {
     if (!this.initialized) throw new Error(uninitializedError('optOutTracking'))
     return RNMixpanel.optOutTracking(this.apiToken)
+  }
+
+  addGroup(groupKey: string, groupId: string): Promise<void> {
+    if (!this.initialized) throw new Error(uninitializedError('addGroup'))
+
+    return RNMixpanel.addGroup(groupKey, groupId, this.apiToken)
+  }
+
+  setGroup(groupKey: string, groupId: string): Promise<void> {
+      if (!this.initialized) throw new Error(uninitializedError('setGroup'))
+
+      return RNMixpanel.setGroup(groupKey, groupId, this.apiToken)
   }
 }
 
@@ -468,5 +481,17 @@ export default {
     if (!defaultInstance) throw new Error(NO_INSTANCE_ERROR)
 
     defaultInstance.optOutTracking()
+  },
+
+  addGroup(groupKey: string, groupId: string) {
+    if (!defaultInstance) throw new Error(NO_INSTANCE_ERROR)
+
+    defaultInstance.addGroup(groupKey, groupId)
+  },
+
+  setGroup(groupKey: string, groupId: string) {
+    if (!defaultInstance) throw new Error(NO_INSTANCE_ERROR)
+
+    defaultInstance.setGroup(groupKey, groupId)
   },
 }
