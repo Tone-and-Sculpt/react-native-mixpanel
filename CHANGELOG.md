@@ -1,3 +1,7 @@
+# 1.2.1
+
+- [Android] Update SDK to 5.8.1 (https://github.com/mixpanel/mixpanel-android/tree/v5.8.1) Check referrer changes on: https://github.com/mixpanel/mixpanel-android/tree/v5.8.0
+
 # 1.2.0
 
 - [iOS] Update SDK to 3.6.0 (https://github.com/mixpanel/mixpanel-iphone/releases/tag/v3.6.0)
