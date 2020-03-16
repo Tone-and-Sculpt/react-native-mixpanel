@@ -1,3 +1,7 @@
+# 1.2.2
+
+- [Android] Fix crash with initPushHandling(). More info: https://github.com/mixpanel/mixpanel-android/pull/582 
+
 # 1.2.1
 
 - [Android] Update SDK to 5.8.1 (https://github.com/mixpanel/mixpanel-android/releases/tag/v5.8.1) Check referrer changes on: https://github.com/mixpanel/mixpanel-android/releases/tag/v5.8.0

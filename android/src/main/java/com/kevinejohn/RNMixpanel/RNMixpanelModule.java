@@ -266,7 +266,9 @@ public class RNMixpanelModule extends ReactContextBaseJavaModule implements Life
     public void initPushHandling (final String token, final String apiToken, Promise promise) {
         final MixpanelAPI instance = getInstance(apiToken);
         synchronized(instance) {
-            instance.getPeople().initPushHandling(token);
+            // REMOVED: https://github.com/mixpanel/mixpanel-android/pull/582
+            // is not needed any more as it uses FCM
+            // instance.getPeople().initPushHandling(token);
         }
         promise.resolve(null);
     }
