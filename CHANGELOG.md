@@ -1,3 +1,8 @@
+# 1.2.3
+
+- Use proper version within package.json
+
+
 # 1.2.2
 
 - [Android] Fix crash with initPushHandling(). More info: https://github.com/mixpanel/mixpanel-android/pull/582 
