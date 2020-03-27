@@ -1,3 +1,7 @@
+# 1.2.4
+
+- [Android] Update SDK to 5.8.2 (https://github.com/mixpanel/mixpanel-android/releases/tag/v5.8.2)
+
 # 1.2.3
 
 - Use proper version within package.json
