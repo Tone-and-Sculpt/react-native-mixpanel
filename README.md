@@ -271,6 +271,13 @@ Mixpanel.reset();
 // get the last distinct id set with identify or, if identify hasn't been
 // called, the default mixpanel id for this device.
 Mixpanel.getDistinctId(function(id){})
+
+// iOS
+// Allows control of the min/max sessions 
+Mixpanel.setAppSessionPropertiesIOS({
+  minimumSessionDuration: 60,
+  maximumSessionDuration: 10,
+});
 ```
 
 ## Displaying in-app messages ##
