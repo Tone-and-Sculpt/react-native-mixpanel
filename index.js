@@ -204,6 +204,14 @@ export class MixpanelInstance {
     return RNMixpanel.addPushDeviceToken(token, this.apiToken)
   }
 
+  // iOS only
+  setAppSessionPropertiesIOS(properties: Object): Promise<void> {
+    if (!this.initialized) throw new Error(uninitializedError('setAppSessionPropertiesIOS'))
+
+    if (!RNMixpanel.setAppSessionPropertiesIOS) throw new Error('No native implementation for setAppSessionPropertiesIOS.  This is iOS only.')
+    return RNMixpanel.setAppSessionPropertiesIOS(properties)
+  }
+
   // android only
   setPushRegistrationId(token: string): Promise<void> {
     if (!this.initialized) throw new Error(uninitializedError('setPushRegistrationId'))
@@ -444,6 +452,13 @@ export default {
     if (!defaultInstance) throw new Error(NO_INSTANCE_ERROR)
 
     defaultInstance.addPushDeviceToken(token)
+  },
+
+  // iOS only
+  setAppSessionPropertiesIOS(properties: Object) {
+    if (!defaultInstance) throw new Error(NO_INSTANCE_ERROR)
+
+    defaultInstance.setAppSessionPropertiesIOS(properties)
   },
 
   // android only

@@ -271,6 +271,13 @@ Mixpanel.reset();
 // get the last distinct id set with identify or, if identify hasn't been
 // called, the default mixpanel id for this device.
 Mixpanel.getDistinctId(function(id){})
+
+// iOS
+// Allows control of the min/max sessions 
+Mixpanel.setAppSessionPropertiesIOS({
+  minimumSessionDuration: 60,
+  maximumSessionDuration: 10,
+});
 ```
 
 ## Displaying in-app messages ##
@@ -281,7 +288,7 @@ This behaviour can be disabled by default, and explicitally triggered at a later
 For iOS, in your app delegate, add the following line:
 
 ```
-// In application:didFinishLaunchingWithOptions:
+// In (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions:
 Mixpanel *mixpanel = [Mixpanel sharedInstanceWithToken:YOUR_MIXPANEL_TOKEN];
 // Turn this off so the message doesn't pop up automatically.
 mixpanel.showNotificationOnActive = NO;
@@ -329,6 +336,28 @@ For Android, add the following to your app mainifest in the `<application>` tag:
 ```
 
 More info: https://help.mixpanel.com/hc/en-us/articles/115004494803-Disable-Geolocation-Collection
+
+## Configure mixpanel urls
+
+Add server url in `.plist` files in iOS project.
+
+```
+<key>com.mixpanel.config.serverURL</key>
+<string>https://api-eu.mixpanel.com</string>
+```
+
+Add endpoints to `manifest` in your Android project.
+
+```
+<application ...>
+    <meta-data android:name="com.mixpanel.android.MPConfig.EventsEndpoint"
+        android:value="https://api-eu.mixpanel.com/track" />
+    <meta-data android:name="com.mixpanel.android.MPConfig.PeopleEndpoint"
+        android:value="https://api-eu.mixpanel.com/engage" />
+    <meta-data android:name="com.mixpanel.android.MPConfig.GroupsEndpoint"
+        android:value="https://api-eu.mixpanel.com/groups" />
+</application>
+```
 
 ## Notes ##
 For more info please have a look at the [official Mixpanel reference](https://mixpanel.com/help/reference/ios) for iOS

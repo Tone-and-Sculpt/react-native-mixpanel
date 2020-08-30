@@ -35,6 +35,7 @@ declare module 'react-native-mixpanel' {
     getPushRegistrationId(): Promise<string>
 
     // iOS only
+    setAppSessionPropertiesIOS(properties: Object): Promise<void>
     removePushDeviceToken(pushDeviceToken: string): Promise<void>
     removeAllPushDeviceTokens(): Promise<void>
     addPushDeviceToken(token: string): Promise<void>
@@ -75,6 +76,7 @@ declare module 'react-native-mixpanel' {
     getPushRegistrationId(callback: (token?: string) => void): void;
 
     // iOS only
+    setAppSessionPropertiesIOS(properties: Object): Promise<void>;
     addPushDeviceToken(token: string): void;
     removePushDeviceToken(pushDeviceToken: string): void;
     removeAllPushDeviceTokens(): void;
