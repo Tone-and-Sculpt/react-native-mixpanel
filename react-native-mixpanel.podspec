@@ -12,8 +12,8 @@ Pod::Spec.new do |s|
   s.homepage     = package['homepage']
   s.source       = { :git => "https://github.com/davodesign84/react-native-mixpanel.git" }
   s.source_files = 'RNMixpanel/*'
-  s.platform     = :ios, "8.0"
+  s.platform     = :ios, "10.0"
   s.tvos.deployment_target = '10.0'
-  s.dependency 'Mixpanel', '3.6.0'
+  s.dependency 'Mixpanel', '3.6.2'
   s.dependency 'React'
 end
