@@ -483,7 +483,7 @@ export default {
 
   showInAppMessageIfAvailable() {
     if (!defaultInstance) throw new Error(NO_INSTANCE_ERROR)
-    defaultInstance.showInAppMessageIfAvailable(token)
+    defaultInstance.showInAppMessageIfAvailable()
   },
 
   optInTracking() {

@@ -1,5 +1,10 @@
+# 1.2.6
+
+- Fix issue with `showInAppMessageIfAvailable()` that throws "Unhandled promise rejection", ReferenceError : Can't find variable: token
+
 # 1.2.5
 
+- [iOS][tvOS] deployment_target changed to 10.0
 - [Android] Update SDK to 5.8.4 (https://github.com/mixpanel/mixpanel-android/releases/tag/v5.8.4)
 - [Android] Add option to disable automatic flushing when the app goes into the background. Add the following to you <application> tag on your AndroidManifest.xml if you don't want the SDK to automatically flush its queues when the app goes into the background: (https://github.com/mixpanel/mixpanel-android/releases/tag/v5.8.3)
 - [iOS] Update SDK to 3.6.2 (https://github.com/mixpanel/mixpanel-iphone/releases/tag/v3.6.2)
