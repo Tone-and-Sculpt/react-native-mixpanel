@@ -265,8 +265,12 @@ Mixpanel.removePushDeviceToken(pushDeviceToken: string);
 // Unregister the given device to receive push notifications.
 Mixpanel.removeAllPushDeviceTokens();
 
-// Mixpanel reset method (warning: it will also generate a new unique id and call the identify method with it. Thus, the user will not be anonymous in Mixpanel.)
+// Mixpanel reset method (warning: by default it will also generate a new unique id and call the identify method with it. Thus, the user will not be anonymous in Mixpanel.)
+//  @param flushOnReset - will flush data on reset (default value: true)
+//  @param autoGenerateNewUniqueId - determines if new unique id should be generated automaticaly or not (default value: true)
 Mixpanel.reset();
+Mixpanel.reset(false);
+Mixpanel.reset(true, false);
 
 // get the last distinct id set with identify or, if identify hasn't been
 // called, the default mixpanel id for this device.
