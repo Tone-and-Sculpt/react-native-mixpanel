@@ -228,10 +228,10 @@ export class MixpanelInstance {
     return RNMixpanel.clearPushRegistrationId(token, this.apiToken)
   }
 
-  reset(): Promise<void> {
+  reset(flushOnReset?: boolean = true, autoGenerateNewUniqueId?: boolean = true): Promise<void> {
     if (!this.initialized) throw new Error(uninitializedError('reset'))
 
-    return RNMixpanel.reset(this.apiToken)
+    return RNMixpanel.reset(this.apiToken, flushOnReset, autoGenerateNewUniqueId)
   }
 
   showInAppMessageIfAvailable(): Promise<void> {
@@ -475,10 +475,10 @@ export default {
     defaultInstance.clearPushRegistrationId(token)
   },
 
-  reset() {
+  reset(flushOnReset?: boolean = true, autoGenerateNewUniqueId?: boolean = true) {
     if (!defaultInstance) throw new Error(NO_INSTANCE_ERROR)
 
-    defaultInstance.reset()
+    defaultInstance.reset(flushOnReset, autoGenerateNewUniqueId)
   },
 
   showInAppMessageIfAvailable() {

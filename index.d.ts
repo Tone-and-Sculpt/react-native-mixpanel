@@ -22,7 +22,7 @@ declare module 'react-native-mixpanel' {
     union(name: string, properties: any[]): Promise<void>
     append(name: string, properties: any[]): Promise<void>
     clearSuperProperties(): Promise<void>
-    reset(): Promise<void>
+    reset(flushOnReset?: boolean, autoGenerateNewUniqueId?: boolean): Promise<void>
     showInAppMessageIfAvailable(): Promise<void>
     optInTracking(): Promise<void>
     optOutTracking(): Promise<void>
@@ -63,7 +63,7 @@ declare module 'react-native-mixpanel' {
     union(name: string, properties: any[]): void;
     append(name: string, properties: any[]): void;
     clearSuperProperties(): void;
-    reset(): void;
+    reset(flushOnReset?: boolean, autoGenerateNewUniqueId?: boolean): void;
     showInAppMessageIfAvailable(): void;
     optInTracking(): void;
     optOutTracking(): void;

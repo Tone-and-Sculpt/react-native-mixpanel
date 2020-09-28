@@ -329,11 +329,21 @@ RCT_EXPORT_METHOD(append:(NSString *)name
 
 // reset
 RCT_EXPORT_METHOD(reset:(NSString *)apiToken
+                  flushOnReset:(BOOL)flushOnReset
+                  autoGenerateNewUniqueId:(BOOL)autoGenerateNewUniqueId
                   resolve:(RCTPromiseResolveBlock)resolve
                   reject:(RCTPromiseRejectBlock)reject) {
+    if (flushOnReset) {
+        [[self getInstance:apiToken] flush];
+    }
+    
     [[self getInstance:apiToken] reset];
-    NSString *uuid = [[NSUUID UUID] UUIDString];
-    [[self getInstance:apiToken] identify:uuid];
+    
+    if (autoGenerateNewUniqueId) {
+        NSString *uuid = [[NSUUID UUID] UUIDString];
+        [[self getInstance:apiToken] identify:uuid];
+    }
+    
     resolve(nil);
 }
 

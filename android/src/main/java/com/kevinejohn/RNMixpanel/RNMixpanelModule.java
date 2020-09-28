@@ -18,6 +18,7 @@ import org.json.JSONObject;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.UUID;
 
 /**
  * Mixpanel React Native module.
@@ -415,11 +416,18 @@ public class RNMixpanelModule extends ReactContextBaseJavaModule implements Life
     }
 
     @ReactMethod
-    public void reset(final String apiToken, Promise promise) {
+    public void reset(final String apiToken, final Boolean flushOnReset, final Boolean autoGenerateNewUniqueId, Promise promise) {
         final MixpanelAPI instance = getInstance(apiToken);
         synchronized(instance) {
+            if (flushOnReset) {
+                instance.flush();
+            }
             instance.reset();
-            instance.flush();
+            if (autoGenerateNewUniqueId) {
+                String uniqueId = UUID.randomUUID().toString();
+                instance.identify(uniqueId);
+                instance.getPeople().identify(uniqueId);
+            }
         }
         promise.resolve(null);
     }
