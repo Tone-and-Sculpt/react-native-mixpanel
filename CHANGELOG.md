@@ -1,3 +1,8 @@
+# 1.2.7
+
+- [Android] Update SDK to 5.8.5 (https://github.com/mixpanel/mixpanel-android/releases/tag/v5.8.5)
+- [iOS]  Update SDK to 3.6.3: (https://github.com/mixpanel/mixpanel-iphone/releases/tag/v3.6.3)
+
 # 1.2.6
 
 - Fix issue with `showInAppMessageIfAvailable()` that throws "Unhandled promise rejection", ReferenceError : Can't find variable: token
