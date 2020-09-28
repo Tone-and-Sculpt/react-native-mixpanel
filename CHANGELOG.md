@@ -1,3 +1,9 @@
+# 1.2.8
+
+- Unify how `reset()` method works on iOS and Android. This change should close an issue: https://github.com/davodesign84/react-native-mixpanel/issues/258 `reset()` method will contain new params: `flushOnReset` and `autoGenerateNewUniqueId`. Reset method is backward compatible. More in README.md
+- Fix `sharedInstanceWithToken` method definition
+
+
 # 1.2.7
 
 - [Android] Update SDK to 5.8.5 (https://github.com/mixpanel/mixpanel-android/releases/tag/v5.8.5)
