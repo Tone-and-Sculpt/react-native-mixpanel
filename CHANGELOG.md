@@ -1,8 +1,19 @@
 # 1.2.8
 
-- Unify how `reset()` method works on iOS and Android. This change should close an issue: https://github.com/davodesign84/react-native-mixpanel/issues/258 `reset()` method contains new params: `flushOnReset` and `autoGenerateNewUniqueId` and it is backward compatible. More in README.md
 - Fix `sharedInstanceWithToken` method definition
+- Unify how `reset()` method works on iOS and Android. This change should close an issue: https://github.com/davodesign84/react-native-mixpanel/issues/258 `reset()` method contains new params: `flushOnReset` and `autoGenerateNewUniqueId` and it is backward compatible. More in README.md
 
+#### The old problem with `reset()` method:
+
+Mixpanel introduced identity merge which allows you to call `.identify(SOME_USER_ID)` and Mixpanel will then merge the profiles for the id you pass in, in this case, `SOME_USER_ID`, and the anonymous id of the user prior to identification. This scenario is currently supported by this library. However, signing out causes some issues. This is because on signout Mixpanel recommends calling `.reset()` to get a new anonymous id for the current user. In this implementation, when we call `.reset()` we immediately call `.identify()` with a newly generated id, for ease-of-use. With calling `.identify()` on `.reset()` we are implicitly merging the newly generated id with the anonymous id. This causes problems because identity merge will not work on anonymous ids that have been already merged.
+
+#### Solution:
+
+Allow the user to pass a boolean to `.reset()` to toggle auto-identifying the user and to toggle auto-flush on reset.
+
+#### Mixpanel's Identity Merge Flow
+
+![Mixpanel's Identity Merge Flow](https://camo.githubusercontent.com/267bbd9cb5e376993b8b89c8859e79651830a9e8/68747470733a2f2f66696c65732e726561646d652e696f2f643030363666302d49445f6d616e6167656d656e745f6964656e746966795f332d485454502e706e67 "Mixpanel's Identity Merge Flow")
 
 # 1.2.7
 
