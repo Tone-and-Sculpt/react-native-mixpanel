@@ -341,7 +341,9 @@ For Android, add the following to your app mainifest in the `<application>` tag:
 
 More info: https://help.mixpanel.com/hc/en-us/articles/115004494803-Disable-Geolocation-Collection
 
-## Configure mixpanel urls
+## Configure data residency in EU
+
+Before migrating or using EU api endpoints read this: https://help.mixpanel.com/hc/en-us/articles/360039135652-Data-Residency-in-EU
 
 Add server url in `.plist` files in iOS project.
 
