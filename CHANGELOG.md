@@ -1,3 +1,7 @@
+# 1.2.9
+
+- [Android] Fix an uncommon issue with this.getCurrentActivity returning null inside of showInAppMessageIfAvailable
+
 # 1.2.8
 
 - Fix `sharedInstanceWithToken` method definition
