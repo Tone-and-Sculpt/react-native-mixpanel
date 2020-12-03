@@ -20,6 +20,8 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
 
+import android.app.Activity;
+
 /**
  * Mixpanel React Native module.
  * Note that synchronized(instance) is used in methods because that's what MixpanelAPI.java recommends you do if you are keeping instances.
@@ -270,6 +272,9 @@ public class RNMixpanelModule extends ReactContextBaseJavaModule implements Life
             // REMOVED: https://github.com/mixpanel/mixpanel-android/pull/582
             // is not needed any more as it uses FCM
             // instance.getPeople().initPushHandling(token);
+            // MixpanelAPI.initPushHandling is deprecated.
+            // Mixpanel now uses Firebase Cloud Messaging.
+            // initPushHandling will be removed in a future version.
         }
         promise.resolve(null);
     }
@@ -474,7 +479,12 @@ public class RNMixpanelModule extends ReactContextBaseJavaModule implements Life
             return;
         }
         synchronized(instance) {
-            instance.getPeople().showNotificationIfAvailable(this.getCurrentActivity());
+            Activity activity = this.getCurrentActivity();
+            MixpanelAPI.People people = instance.getPeople();
+
+            if(activity != null && people != null){
+                people.showNotificationIfAvailable(activity);
+            }
         }
         promise.resolve(null);
     }
