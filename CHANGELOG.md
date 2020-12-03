@@ -17,7 +17,7 @@ Allow the user to pass a boolean to `.reset()` to toggle auto-identifying the us
 
 #### Mixpanel's Identity Merge Flow
 
-![Mixpanel's Identity Merge Flow](https://camo.githubusercontent.com/267bbd9cb5e376993b8b89c8859e79651830a9e8/68747470733a2f2f66696c65732e726561646d652e696f2f643030363666302d49445f6d616e6167656d656e745f6964656e746966795f332d485454502e706e67 "Mixpanel's Identity Merge Flow")
+![Mixpanel's Identity Merge Flow](/docs/img/mixpanel-merge.png "Mixpanel's Identity Merge Flow")
 
 # 1.2.7
 
