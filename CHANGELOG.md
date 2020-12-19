@@ -1,3 +1,7 @@
+# 1.2.10
+
+- [iOS] Update SDK to 3.6.4: (https://github.com/mixpanel/mixpanel-iphone/releases/tag/v3.6.4)
+
 # 1.2.9
 
 - [Android] Fix an uncommon issue with this.getCurrentActivity returning null inside of showInAppMessageIfAvailable
@@ -22,7 +26,7 @@ Allow the user to pass a boolean to `.reset()` to toggle auto-identifying the us
 # 1.2.7
 
 - [Android] Update SDK to 5.8.5 (https://github.com/mixpanel/mixpanel-android/releases/tag/v5.8.5)
-- [iOS]  Update SDK to 3.6.3: (https://github.com/mixpanel/mixpanel-iphone/releases/tag/v3.6.3)
+- [iOS] Update SDK to 3.6.3: (https://github.com/mixpanel/mixpanel-iphone/releases/tag/v3.6.3)
 
 # 1.2.6
 

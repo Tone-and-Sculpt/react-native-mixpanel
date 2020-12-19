@@ -14,6 +14,6 @@ Pod::Spec.new do |s|
   s.source_files = 'RNMixpanel/*'
   s.platform     = :ios, "10.0"
   s.tvos.deployment_target = '10.0'
-  s.dependency 'Mixpanel', '3.6.3'
+  s.dependency 'Mixpanel', '3.6.4'
   s.dependency 'React'
 end
