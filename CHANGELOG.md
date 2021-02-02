@@ -1,3 +1,7 @@
+# 1.2.11
+
+- [Android] Update SDK to 5.8.6 (https://github.com/mixpanel/mixpanel-android/releases/tag/v5.8.6)
+
 # 1.2.10
 
 - [iOS] Update SDK to 3.6.4: (https://github.com/mixpanel/mixpanel-iphone/releases/tag/v3.6.4)
